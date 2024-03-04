@@ -1,0 +1,11 @@
+[tool.poetry]
+name = "febraban-code"
+version = "0.1.0"
+authors = ["Ricardo Castro <srrenks@gmail.com>"]
+description = "FebrabanCode Class for parsing and validating Febraban codes used in Brazil."
+readme = "README.md"
+license = "MIT"
+keywords = ["digitable line", "brazil", "bar code", "febraban"]
+
+[project.urls]
+Repository = "https://github.com/SrRenks/febraban-code.git"

@@ -55,21 +55,20 @@ class FebrabanCode:
 
         Returns the calculated check digit.
         """
-        multiplier = 2
+        multiplier = 4
         total = 0
 
-        for element in number[::-1]:
-            result = int(element) * multiplier
-            multiplier = (2 if multiplier == 9 else multiplier + 1)
-            total += result
+        for digit in range(0, len(number)):
+            total += int(number[digit]) * multiplier
+            multiplier = 10 if multiplier == 2 else multiplier
+            multiplier -= 1
 
-        remainder = total % 11
-        exceptions = {0: 0, 1: 0, 10: 1}
-        if remainder in exceptions:
-            return exceptions[remainder]
+        dv = 11 - total % 11
 
-        dv_calculated = 11 - remainder
-        return dv_calculated
+        if dv in {0, 10, 11}:
+            return 1
+
+        return dv
 
     def __get_expiry(self, expiry_factor: str) -> date:
         """
